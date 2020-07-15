@@ -9,7 +9,114 @@
 
 
 <script>
-  function computerPlay()
+let gameRounds = 0
+let humanScore = 0
+let computerScore = 0
+
+
+const rounds = document.getElementById('rounds');
+const results = document.getElementById('results');
+const playerScore = document.getElementById('playerScore');
+const computerScore = document.getElementById('computerScore');
+const state = document.getElementsById('state');
+const again = document.getElementById('postGame');
+const victor = document.getElementById('victor');
+
+  function computerPlay(){
+    let choice = Math.floor(Math.random()*3)
+
+    return choice === 0 ? "Rock"
+          :choice === 1 ? "Paper"
+          :choice === 2 ? "Scissors"
+          :"Error.";
+  }
+
+
+  function playRound(val){
+    if(gameRounds <=5){
+      gameRounds++:
+      rounds.innerHtml = 'Round ${gameRounds} of 5.';
+
+      let playerChoice = val;
+      let computerChoice = computerPlay();
+
+      if (playerChoice === computerPlay){
+        results.innerHtml = "It's a tie."
+      }
+
+    switch (playerChoice){
+      case "Rock":
+        if (computerChoice === "Scissors")
+          humanScore++;
+          playerScore.innerHtml = `${humanScore}`;
+          results.innerHtml = `You won! ${playerChoice} loses to ${computerChoice}`;
+          break;
+      } else if (computerChoice === "Paper"){
+          computerScore++;
+          computerScore.innerHtml = `${computerScore}`
+          results.innerHtml = `You lose! ${playerChoice} loses to ${computerChoice}`;
+          break;
+      }
+      break;
+
+      case "Paper":
+        if (computerChoice === "Rock"){
+          humanScore++;
+          playerScore.innerHtml = `${humanScore}`;
+          results.innerHtml = `You won! ${playerChoice} loses to ${computerChoice}`;
+          break;
+      } else if (computerChoice === "Scissors") {
+          computerScore++;
+          computerScore.innerHtml = `${computerScore}`
+          results.innerHtml = `You lose! ${playerChoice} loses to ${computerChoice}`;
+          break;
+      }
+      break;
+
+      case "Scissors":
+        if (computerChoice === "Paper"){
+          humanScore++;
+          playerScore.innerHtml = `${humanScore}`;
+          results.innerHtml = `You won! ${playerChoice} loses to ${computerChoice}`;
+          break;
+      } else if (computerChoice === "Rock"){
+          computerScore++;
+          computerScore.innerHtml = `${computerScore}`
+          results.innerHtml = `You lose! ${playerChoice} loses to ${computerChoice}`;
+          break;
+      }
+      break;
+    }
+  }
+
+  if (gameRounds == 5){
+      state.innerHtml = "Game over.";
+      again.style.display = "block";
+      if (humanScore == computerScore){
+        victor.innerHtml = "It's a draw.";
+    } else if (humanScore > computerScore){
+        victor.innerHtml = "You won!";
+    } else if (humanScore < computerScore){
+        victor.innerHtml = "You lose.";
+    }
+
+  }
+
+  function restart(){
+    gameRounds = 0;
+    humanScore = 0;
+    computerScore = 0;
+
+    computerScore.innerHtml = `${computerScore}`;
+    playerScore.innerHtml = `${humanScore}`;
+    rounds.innerHtml = "Round 0 of 5"
+    results.innerHtml = "Begin!";
+    state.innerHtml = "";
+    victor.innerHtml = "";
+    again.style.display = "none";
+  }
+
+
   </script>
 
 
