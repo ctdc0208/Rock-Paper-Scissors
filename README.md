@@ -1,1 +1,1 @@
-This is my Rock, Paper, Sciccors Project.
+This is my Rock, Paper, Scissors Project.
