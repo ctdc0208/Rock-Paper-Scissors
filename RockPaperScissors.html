@@ -6,6 +6,42 @@
 
 
 
+<head>
+  <title> Rock, Paper, Scissors Game!>
+</head>
+
+<body>
+  <h1>Rock, Paper, Scissors!</h1>
+  <div>
+    <h3>Computer</h3>
+    <span>0</span>
+  </div>
+  <div>
+    <h3>Player<h3>
+    <span>0</span>
+  </div>
+
+  <div>
+    <span>Round 0 of 5</span>
+    <span>Begin!</span>
+  </div>
+
+  <div>
+                 <input type="button" value="Rock"  onclick="playRound(this.value)">
+                 <input type="button" value="Paper" onclick="playRound(this.value)">
+                 <input type="button" value="Scissors"  onclick="playRound(this.value)">
+   </div>
+
+             <div style="display: none;">
+                           <span  style="color: white;"></span>
+                           <span  style="color: aqua;"></span>
+                           <input type="button" value="Play Again"  onclick="restart()" style="background-color: aqua">
+                       </div>
+        </body>
+
+
+
+
 
 
 <script>
